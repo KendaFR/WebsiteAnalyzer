@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vérificateur de fiabilité</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="header">
+      <div class="header-tag">// Analyse de site</div>
+      <h1>Vérificateur de fiabilité</h1>
+      <p>100 % gratuit · Trustpilot · Âge du domaine · Balises meta · Mentions légales</p>
+    </div>
+
+    <div class="input-section">
+      <div class="input-row">
+        <input class="url-input" id="urlInput" type="text" placeholder="https://exemple.com" autocomplete="off" />
+        <button class="analyze-btn" id="analyzeBtn" onclick="analyze()">Analyser →</button>
+      </div>
+    </div>
+
+    <div class="status-bar" id="statusBar">
+      <div class="spinner"></div>
+      <span id="statusText">Analyse en cours…</span>
+    </div>
+
+    <div class="error-box" id="errorBox"></div>
+
+    <div class="results" id="results">
+
+      <div class="section-label">Vue d'ensemble</div>
+      <div class="score-row">
+        <div class="score-card score-card-main">
+          <div class="sc-label">Score global</div>
+          <div class="global-score" id="globalScore">—</div>
+          <div class="sc-sub" id="globalLabel">—</div>
+        </div>
+        <div class="score-card">
+          <div class="sc-label">Trustpilot</div>
+          <div class="sc-value" id="tpScore">—</div>
+          <div class="sc-sub" id="tpReviews">—</div>
+          <div class="trust-bar-wrap">
+            <div class="trust-bar-bg"><div class="trust-bar-fill" id="tpBar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="score-card">
+          <div class="sc-label">Âge du domaine</div>
+          <div class="sc-value" id="domainAge">—</div>
+          <div class="sc-sub" id="domainDate">—</div>
+        </div>
+        <div class="score-card">
+          <div class="sc-label">Mentions légales</div>
+          <div class="sc-value" id="legalScore">—</div>
+          <div class="sc-sub" id="legalSub">—</div>
+        </div>
+      </div>
+
+      <!-- Trustpilot -->
+      <div class="detail-card">
+        <h3><span class="dot" id="tpDot"></span>Trustpilot</h3>
+        <div class="divider"></div>
+        <div id="tpDetail" class="card-text"></div>
+      </div>
+
+      <!-- Domaine -->
+      <div class="detail-card">
+        <h3><span class="dot" id="domainDot"></span>Informations domaine (WHOIS)</h3>
+        <div class="divider"></div>
+        <div id="domainDetail" class="card-text"></div>
+      </div>
+
+      <!-- Meta -->
+      <div class="detail-card">
+        <h3><span class="dot" id="metaDot"></span>Balises meta &amp; SEO</h3>
+        <div class="divider"></div>
+        <div class="section-label" style="margin-bottom:8px;">Balises détectées</div>
+        <div class="tags-wrap" id="tagsWrap"></div>
+        <div id="metaTitle" class="meta-table" style="margin-top:14px;"></div>
+      </div>
+
+      <!-- Légal -->
+      <div class="detail-card">
+        <h3><span class="dot" id="legalDot"></span>Mentions légales &amp; CGV</h3>
+        <div class="divider"></div>
+        <div class="legal-grid" id="legalGrid"></div>
+        <div id="legalLinks" class="card-text" style="margin-top:12px;font-size:12px;"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
