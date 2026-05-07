@@ -10,10 +10,11 @@
 </head>
 <body>
   <div class="app">
+
     <div class="header">
       <div class="header-tag">// Analyse de site</div>
       <h1>Vérificateur de fiabilité</h1>
-      <p>100 % gratuit · Trustpilot · Âge du domaine · Balises meta · Mentions légales</p>
+      <p>100 % gratuit · Trustpilot · Popularité · Sécurité · Balises meta · Mentions légales</p>
     </div>
 
     <div class="input-section">
@@ -32,12 +33,18 @@
 
     <div class="results" id="results">
 
+      <!-- ── Vue d'ensemble ── -->
       <div class="section-label">Vue d'ensemble</div>
       <div class="score-row">
         <div class="score-card score-card-main">
           <div class="sc-label">Score global</div>
           <div class="global-score" id="globalScore">—</div>
           <div class="sc-sub" id="globalLabel">—</div>
+        </div>
+        <div class="score-card">
+          <div class="sc-label">Popularité</div>
+          <div class="sc-value" id="popValue">—</div>
+          <div class="sc-sub" id="popSub">—</div>
         </div>
         <div class="score-card">
           <div class="sc-label">Trustpilot</div>
@@ -53,36 +60,69 @@
           <div class="sc-sub" id="domainDate">—</div>
         </div>
         <div class="score-card">
+          <div class="sc-label">Sécurité</div>
+          <div class="sc-value" id="secValue">—</div>
+          <div class="sc-sub" id="secSub">—</div>
+        </div>
+        <div class="score-card">
           <div class="sc-label">Mentions légales</div>
           <div class="sc-value" id="legalScore">—</div>
           <div class="sc-sub" id="legalSub">—</div>
         </div>
       </div>
 
-      <!-- Trustpilot -->
+      <!-- ── Détail du score ── -->
+      <div class="detail-card">
+        <h3><span class="dot dot-ok"></span>Détail du score</h3>
+        <div class="divider"></div>
+        <div id="scoreBreakdown" style="display:flex;flex-direction:column;gap:10px;"></div>
+      </div>
+
+      <!-- ── Popularité ── -->
+      <div class="detail-card">
+        <h3><span class="dot" id="popDot"></span>Popularité &amp; Notoriété</h3>
+        <div class="divider"></div>
+        <div id="popDetail" class="card-text"></div>
+      </div>
+
+      <!-- ── Trustpilot ── -->
       <div class="detail-card">
         <h3><span class="dot" id="tpDot"></span>Trustpilot</h3>
         <div class="divider"></div>
         <div id="tpDetail" class="card-text"></div>
       </div>
 
-      <!-- Domaine -->
+      <!-- ── Domaine ── -->
       <div class="detail-card">
-        <h3><span class="dot" id="domainDot"></span>Informations domaine (WHOIS)</h3>
+        <h3><span class="dot" id="domainDot"></span>Informations domaine (WHOIS / RDAP)</h3>
         <div class="divider"></div>
         <div id="domainDetail" class="card-text"></div>
       </div>
 
-      <!-- Meta -->
+      <!-- ── Sécurité & Tech ── -->
+      <div class="detail-card">
+        <h3><span class="dot" id="secDot"></span>Sécurité &amp; Technique</h3>
+        <div class="divider"></div>
+        <div class="legal-grid" id="secGrid"></div>
+      </div>
+
+      <!-- ── Réseaux sociaux ── -->
+      <div class="detail-card">
+        <h3><span class="dot" id="socialDot"></span>Présence sur les réseaux sociaux</h3>
+        <div class="divider"></div>
+        <div class="legal-grid" id="socialGrid"></div>
+      </div>
+
+      <!-- ── Balises meta ── -->
       <div class="detail-card">
         <h3><span class="dot" id="metaDot"></span>Balises meta &amp; SEO</h3>
         <div class="divider"></div>
         <div class="section-label" style="margin-bottom:8px;">Balises détectées</div>
         <div class="tags-wrap" id="tagsWrap"></div>
-        <div id="metaTitle" class="meta-table" style="margin-top:14px;"></div>
+        <div class="meta-table" id="metaValues" style="margin-top:14px;"></div>
       </div>
 
-      <!-- Légal -->
+      <!-- ── Mentions légales ── -->
       <div class="detail-card">
         <h3><span class="dot" id="legalDot"></span>Mentions légales &amp; CGV</h3>
         <div class="divider"></div>
